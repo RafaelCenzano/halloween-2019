@@ -54,7 +54,7 @@ def hacker4():
 
 	for f in files:
 		delay(0.02)
-		print(f)
+		print(f'Gained access to: {f}')
 
 def hacker5():
 	folders = []
@@ -62,12 +62,14 @@ def hacker5():
 	# r=root, d=directories, f = files
 	for r, d, f in os.walk('/Users/rafael/Documents/Programming/'):
 		for folder in d:
-			if '_' not in folder:
+			if '_' in folder and 'git' in folder:
+				pass
+			else:
 				folders.append(os.path.join(r, folder))
 
 	for f in folders:
 		delay(0.02)
-		print(f)
+		print(f'Gained access to: {f}')
 
 if __name__ == '__main__':
 	while True:
