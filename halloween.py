@@ -46,17 +46,28 @@ def hacker3():
 	delay(1)
 
 def hacker4():
+	files = []
+	# r=root, d=directories, f = files
 	for r, d, f in os.walk('/Users/rafael/Documents/Programming/'):
-		for files in f:
-			delay(0.003)
-			print(files)
+		for file in f:
+			files.append(os.path.join(r, file))
+
+	for f in files:
+		delay(0.02)
+		print(f)
 
 def hacker5():
+	folders = []
+
+	# r=root, d=directories, f = files
 	for r, d, f in os.walk('/Users/rafael/Documents/Programming/'):
-		for dirs in d:
-			delay(0.003)
-			if dirs != '__pycache__' and len(str(dirs)) > 2:
-				print(dirs)
+		for folder in d:
+			if '_' not in folder:
+				folders.append(os.path.join(r, folder))
+
+	for f in folders:
+		delay(0.02)
+		print(f)
 
 if __name__ == '__main__':
 	while True:
@@ -66,8 +77,12 @@ if __name__ == '__main__':
 		elif randNum == 2:
 			hacker3()
 		elif randNum == 3:
-			hacker4()
+			randNumdif = random.randint(0,3)
+			if randNumdif < 1:
+				hacker4()
 		elif randNum == 4:
-			hacker5()
+			randNumdif = random.randint(0,4)
+			if randNumdif < 1:
+				hacker5()
 		else:
 			hacker2()
